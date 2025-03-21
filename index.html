@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Derek's ID Card</title>
+    <title>Derek's M-Pesa Meeting ID</title>
     <style>
         :root {
             --primary-color: #3498db;
@@ -11,6 +11,8 @@
             --accent-color: #e74c3c;
             --light-color: #ecf0f1;
             --dark-color: #34495e;
+            --mpesa-green: #8CC63F;
+            --mpesa-red: #ED1C24;
         }
         
         * {
@@ -30,7 +32,7 @@
         .navbar {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
             position: fixed;
             top: 0;
             left: 0;
@@ -45,14 +47,13 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            color: var(--primary-color);
             font-weight: bold;
             font-size: 1.5rem;
         }
         
-        .logo-icon {
-            margin-right: 0.5rem;
-            font-size: 1.8rem;
+        .logo-img {
+            height: 40px;
+            margin-right: 0.8rem;
         }
         
         .nav-links {
@@ -72,7 +73,7 @@
         }
         
         .nav-links a:hover {
-            color: var(--primary-color);
+            color: var(--mpesa-green);
         }
         
         .container {
@@ -102,7 +103,7 @@
         }
         
         h1 {
-            color: var(--primary-color);
+            color: var(--mpesa-green);
             margin-bottom: 1rem;
             font-size: 2.5rem;
         }
@@ -113,13 +114,13 @@
         }
         
         .highlight {
-            color: var(--accent-color);
+            color: var(--mpesa-red);
             font-weight: bold;
         }
         
         .download-btn {
             display: inline-block;
-            background-color: var(--primary-color);
+            background-color: var(--mpesa-green);
             color: white;
             padding: 0.8rem 1.8rem;
             border-radius: 50px;
@@ -152,9 +153,9 @@
         }
         
         .download-btn:hover {
-            background-color: #2980b9;
+            background-color: #7ab62f;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 5px 15px rgba(140, 198, 63, 0.4);
         }
         
         .download-btn:active {
@@ -178,6 +179,18 @@
             margin-top: 2rem;
         }
         
+        .meeting-details {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--mpesa-green);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        
+        .meeting-details p {
+            margin-bottom: 0.5rem;
+        }
+        
         /* Mobile menu button */
         .menu-btn {
             display: none;
@@ -190,7 +203,7 @@
         
         @media (max-width: 768px) {
             .navbar {
-                padding: 1rem;
+                padding: 0.8rem 1rem;
             }
             
             .menu-btn {
@@ -234,8 +247,8 @@
         }
         
         @media (max-width: 480px) {
-            .logo {
-                font-size: 1.2rem;
+            .logo-img {
+                height: 30px;
             }
             
             h1 {
@@ -257,7 +270,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <a href="#" class="logo">
-            <span class="logo-icon">🆔</span> SecureID
+            <img src="/api/placeholder/180/100" alt="M-Pesa Logo" class="logo-img">
         </a>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
@@ -270,9 +283,15 @@
     <div class="container">
         <div class="card">
             <h1>Hello, Derek!</h1>
-            <p>Your official identification card is just a click away. Keep it secure and accessible whenever you need it.</p>
+            <p>Your <span class="highlight">official identification card</span> for the upcoming M-Pesa meeting at Kasarani is ready for download.</p>
             
-            <p>Having your ID ready means <span class="highlight">never missing a beat</span> when it matters most.</p>
+            <div class="meeting-details">
+                <p><strong>Event:</strong> M-Pesa Stakeholders Meeting</p>
+                <p><strong>Venue:</strong> Kasarani Stadium, Conference Hall</p>
+                <p><strong>Remember:</strong> This ID card is required for entry to the meeting venue</p>
+            </div>
+            
+            <p>Please download and print your identification card before the meeting date for a smooth check-in process.</p>
             
             <a href="#" class="download-btn">
                 <span class="icon">📥</span> Download Identification Card
@@ -280,9 +299,9 @@
             
             <div class="divider"></div>
             
-            <p>This secure download link ensures your personal information remains protected.</p>
+            <p>This secure download contains your personalized QR code for event registration.</p>
             
-            <p class="tagline">"Your identity, simplified."</p>
+            <p class="tagline">"Transforming lives through mobile money innovation."</p>
         </div>
     </div>
 
@@ -294,6 +313,10 @@
         menuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+        
+        // Logo update - using base64 to embed the logo in the HTML
+        // This represents the M-Pesa logo you shared
+        document.querySelector('.logo-img').src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAIAAAAiOjnJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ4IDc5LjE2NDAzNiwgMjAxOS8wOC8xMy0wMTowNjo1NyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIxLjAgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjhCQTM4NzY2MTgwQjExRUQ5Nzg2ODcwQTM4QTBBQ0JFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjhCQTM4NzY3MTgwQjExRUQ5Nzg2ODcwQTM4QTBBQ0JFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OEJBODM3NjQxODBCMTFFRDk3ODY4NzBBMzhBMEFDQkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OEJBODM3NjUxODBCMTFFRDk3ODY4NzBBMzhBMEFDQkUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7JXKgZAAAOcElEQVR42uydB1QU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";
     </script>
 </body>
 </html>
